@@ -1,24 +1,19 @@
  # 3- Desenvolva um algoritmo que solicite ao usuário que digite um número inteiro e divida 10 pelo número digitado. Se o número digitado for 0, levante uma exceção embutida com uma mensagem de erro apropriada. Em seguida, imprima o resultado da divisão
 
-class TenDivisionError(Exception):
-    pass
-
-def ten_division():
+def division(n):
     try:
-        n = int(input('Digite um número Não Múltiplo de 10'))
-        if  n % 10 == 0:
-            raise TenDivisionError
-        print(f'Número aprovado!: {n}')
-    except(TenDivisionError):
-        print(f'Número Digitado é Divisível por 10: {n}')
-    except(ValueError):
-        print('Digite um número inteiro válido')
+        div = 10 / n
+        return div
+    except ZeroDivisionError:
+        return 'Digite um número inteiro não nulo!'
 
-continuar = True
-while continuar:
-    ten_division()
-    cont = str(input('Deseja Continuar? (Yy/Nn): ')).strip().lower()
+
+print('Vamos dividir o número 10 por alguns números inteiros!')
+while True:
+    num = int(input('Digite um número inteiro não nulo: '))
+    print(division(num))
+    cont = str(input('Deseja continuar? Yy/Nn: ')).strip().lower()
     if cont in 'n':
-        continuar = False
+        break
 
-print('\n\nFim do Programa!')
+print('\n\nFIM DO PROGRAMA!')
